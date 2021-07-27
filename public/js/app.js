@@ -1,15 +1,15 @@
-const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext('2d');
+const source = document.querySelector('#source');
+const ctx = source.getContext('2d');
 
 let [startX, startY] = [null, null];
 let drawing = false;
 
-canvas.addEventListener('mousedown', e => {
+source.addEventListener('mousedown', e => {
 	[startX, startY] = [e.offsetX, e.offsetY];
 	drawing = true;
 });
 
-canvas.addEventListener('mousemove', e => {
+source.addEventListener('mousemove', e => {
 	if (drawing) {
 		ctx.beginPath();
 		ctx.moveTo(startX, startY);
@@ -20,6 +20,20 @@ canvas.addEventListener('mousemove', e => {
 	}
 });
 
-canvas.addEventListener('mouseup', e => {
+source.addEventListener('mouseup', e => {
 	drawing = false;
 });
+
+const destination = document.querySelector('#destination');
+const dCtx = destination.getContext('2d');
+
+const button = document.querySelector('button');
+button.addEventListener('click', e => {
+	const imgData = source.toDataURL('image/png');
+	console.log(imgData);
+	const img = new Image();
+	img.src = imgData;
+	img.onload = () => {
+		dCtx.drawImage(img, 0, 0, destination.width, destination.height);
+	};
+})
