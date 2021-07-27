@@ -15,9 +15,13 @@ app.get('/', (req, res) => {
 	res.render('home.ejs');
 });
 
+app.get('/receive', (req, res) => {
+	res.render('receive.ejs');
+});
+
 io.on('connection', socket => {
-	socket.on('image', img => {
-		console.log(img);
+	socket.on('image', data => {
+		io.emit('image', data);
 	});
 });
 
