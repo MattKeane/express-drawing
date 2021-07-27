@@ -1,5 +1,6 @@
 const source = document.querySelector('#source');
 const ctx = source.getContext('2d');
+const socket = io();
 
 let [startX, startY] = [null, null];
 let drawing = false;

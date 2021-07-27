@@ -1,9 +1,15 @@
 const express = require('express');
-
-require('dotenv').config();
-const PORT = process.env.PORT;
+const http = require('http');
+const { Server } = require('socket.io');
 
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
+
+require('dotenv').config();
+const PORT = process.env.PORT || 3000;
+
+
 
 app.use(express.static('public'));
 
@@ -11,7 +17,11 @@ app.get('/', (req, res) => {
 	res.render('home.ejs');
 });
 
-app.listen(PORT, () => {
+io.on('connection', socket => {
+	console.log('a user connected');
+});
+
+server.listen(PORT, () => {
 	const d = new Date();
 	console.log(`${d.toLocaleString()}: listening on Port ${PORT}.`)
 });
