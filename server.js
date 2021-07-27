@@ -9,8 +9,6 @@ const io = new Server(server);
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 
-
-
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
@@ -18,7 +16,9 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', socket => {
-	console.log('a user connected');
+	socket.on('image', img => {
+		console.log(img);
+	});
 });
 
 server.listen(PORT, () => {
