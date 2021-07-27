@@ -1,0 +1,12 @@
+{
+  "name": "drawing-express",
+  "version": "1.0.0",
+  "description": "a drawing app",
+  "main": "server.js",
+  "author": "Matt Keane",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}
