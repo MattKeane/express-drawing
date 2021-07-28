@@ -32,14 +32,14 @@ source.addEventListener('mouseleave', e => {
 		ctx.stroke();
 	}
 	drawing = false;
-})
+});
 
 source.addEventListener('mouseenter', e => {
 	if (mouseDown) {
 		[startX, startY] = [e.offsetX, e.offsetY];
 		drawing = true;
 	}
-})
+});
 
 document.addEventListener('mouseup', e => {
 	mouseDown = false;
