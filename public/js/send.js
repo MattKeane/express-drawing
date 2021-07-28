@@ -28,7 +28,7 @@ source.addEventListener('mouseleave', e => {
 		ctx.beginPath();
 		ctx.moveTo(startX, startY);
 		ctx.lineTo(e.offsetX, e.offsetY);
-		ctx.lineWdith = 2;
+		ctx.lineWidth = 2;
 		ctx.stroke();
 	}
 	drawing = false;
