@@ -11,8 +11,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-	res.render('home.ejs');
+app.get('/send', (req, res) => {
+	res.render('send.ejs');
 });
 
 app.get('/receive', (req, res) => {
