@@ -25,17 +25,8 @@ source.addEventListener('mouseup', e => {
 	drawing = false;
 });
 
-const destination = document.querySelector('#destination');
-const dCtx = destination.getContext('2d');
-
 const button = document.querySelector('button');
 button.addEventListener('click', e => {
 	const imgData = source.toDataURL('image/png');
 	socket.emit('image', imgData);
-	console.log(imgData);
-	const img = new Image();
-	img.src = imgData;
-	img.onload = () => {
-		dCtx.drawImage(img, 0, 0, destination.width, destination.height);
-	};
-})
+});
