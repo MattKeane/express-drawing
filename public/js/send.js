@@ -49,5 +49,5 @@ document.addEventListener('mouseup', e => {
 const button = document.querySelector('button');
 button.addEventListener('click', e => {
 	const imgData = source.toDataURL('image/png');
-	socket.emit('image', imgData);
+	socket.emit('roomImage', imgData, room);
 });

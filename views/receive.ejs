@@ -2,6 +2,9 @@
 
 <canvas height="500px" width="750px"></canvas>
 
-<script src="socket.io/socket.io.js"></script>
-<script src="js/receive.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	const room = '<%= room %>';
+</script>
+<script src="/js/receive.js"></script>
 <%- include('./partials/footer.ejs') %>

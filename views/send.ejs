@@ -3,6 +3,10 @@
 <canvas id="source" height="500px" width="750px"></canvas>
 <button>Send</button>
 
-<script src="socket.io/socket.io.js"></script>
-<script src="js/send.js"></script>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	const room = '<%= room %>';
+</script>
+<script src="/js/send.js"></script>
 <%- include('./partials/footer.ejs') %>
