@@ -4,7 +4,12 @@ const { Server } = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+	cors: {
+		origin: 'http://localhost:3000',
+		methods: ['GET', 'POST'],
+	}
+});
 
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
@@ -20,6 +25,7 @@ app.get('/receive/:room', (req, res) => {
 });
 
 io.on('connection', socket => {
+	console.log('user connected!');
 	socket.on('image', data => {
 		io.emit('image', data);
 	});
